@@ -1,0 +1,26 @@
+# /bin/bash
+while :
+do
+clear
+echo "欢迎试用java安装+配置脚本  --by j.wolf"
+echo
+echo "-----------------------------------"
+echo 
+echo " 1 - 32位安装"
+echo
+echo " 2 - 64位安装"
+echo
+echo " 3 - 配置环境"
+echo
+echo " 4 - 退出"
+echo 
+echo "-----------------------------------"
+echo -n "请选择："
+read opt
+case $opt in
+1)./jdk32.bin && mv jdk1.6.0_45/ java && sudo mv java /opt/;continue;;
+2)./jdk64.bin && mv jdk1.6.0_45/ java && sudo mv java /opt/;continue;;
+3)sudo echo  export JAVA_HOME=/opt/java >> ~/.bashrc && sudo echo export JRE_HOME=/opt/java/jre >> ~/.bashrc && sudo echo 'export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH' >> ~/.bashrc && sudo echo 'export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH' >> ~/.bashrc && source ~/.bashrc;continue;;
+4)exit 0;continue;;
+esac
+done
